@@ -4,10 +4,13 @@ using UnityEngine;
 using TMPro;
 
 
-//Using enum states to change the game "state"! (Using enum states I think gives off the JRPG vibe) Do so outside of the class to reference it anywhere
-public enum TurnState { START, END, PLAYERTURN, WAITING, ENEMYTURN, VICTORY, DEFEAT }
+
 public class TurnSystem : MonoBehaviour
+
 {
+    //Using enum states to change the game "state"! (Using enum states I think gives off the JRPG vibe) Do so outside of the class to reference it anywhere
+
+    public enum TurnState { START, END, PLAYERTURN, WAITING, ENEMYTURN, VICTORY, DEFEAT }
     //game state variable
     public TurnState gameState;
     //TMPro variable to signal change of game state
@@ -35,11 +38,18 @@ public class TurnSystem : MonoBehaviour
     {
         stateText.text = gameState.ToString();
     }
-    //Does nothing for now, here's where the player would choose thier actions (Might change later to simplify things)
+    //Does nothing for now, here's where the player would choose their actions (Might change later to simplify things)
     IEnumerator playerAction()
     {
         yield return new WaitForSeconds(1);
         
+    }
+
+    //Enemy action method (Might change later to simplify things)
+    IEnumerator enemyAction()
+    {
+        yield return new WaitForSeconds(1);
+
     }
 
 

@@ -33,7 +33,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     // managing the slices
     public SpinnerSlice[] slices = new SpinnerSlice[8];
     private SpinnerSlice currentSlice;
-    private TurnState getGameState;
+    public TurnSystem.TurnState gameState;
 
     // singleton access
     public PlayerSpinnerControl Instance()
@@ -47,11 +47,13 @@ public class PlayerSpinnerControl : MonoBehaviour
     {
         spinning = false;
         centering = false;
+        
     }
 
     void Update()
     {
-        
+       
+  
         // temporary for making sure stuff works!!
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -89,6 +91,7 @@ public class PlayerSpinnerControl : MonoBehaviour
                 oldRotation = currentRotation;
                 centering = true;
                 spinning = false;
+                
             }
         }
 
