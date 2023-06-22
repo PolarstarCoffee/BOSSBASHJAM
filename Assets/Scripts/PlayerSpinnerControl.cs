@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /*
- * This script controls the player's spinner. There's a 
+ * This script controls manages the spinner. There's a 
  * lotta gross variables but most of them are just 
  * helping keep track of rotations. It's set up as a singleton
  * bc we'll want to have other objects subscribe to the 
