@@ -52,19 +52,20 @@ public class CombatManager : MonoBehaviour
         if (playerAttribute != SpinnerSlice.SliceAttribute.NULL)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.RESOLVINGCOMBAT);
-            ProcessTurn();
+            ProcessEnemyTurn();
         }
     }
 
     public void PlayerTurn(SpinnerSlice.SliceAttribute attribute)
     {
         playerAttribute = attribute;
-        TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
-        enemyControl.Spin();
+        TurnSystem.Instance().SetState(TurnSystem.TurnState.RESOLVINGCOMBAT);
+        ProcessPlayerTurn();
     }
 
-    // this function is going to get very long- I think it's necessary tho, what can ya do :/
-    private void ProcessTurn()
+   
+   
+    private void ProcessEnemyTurn()
     {
         if (enemyAttribute == SpinnerSlice.SliceAttribute.ATTACK)
         {
@@ -78,6 +79,25 @@ public class CombatManager : MonoBehaviour
             }
         }
 
+       
+
+        if (playerHealth.GetCurrentHealth() < 1)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
+            return;
+        }
+        else if (enemyHealth.GetCurrentHealth() < 1)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
+            return;
+        }
+
+
+      
+        TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
+    }
+    private void ProcessPlayerTurn()
+    {
         if (playerAttribute == SpinnerSlice.SliceAttribute.ATTACK)
         {
             if (enemyAttribute == SpinnerSlice.SliceAttribute.DODGE)
@@ -93,17 +113,19 @@ public class CombatManager : MonoBehaviour
         if (playerHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
+            return;
         }
         else if (enemyHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
+            return;
         }
-
-
-        // reset attributes
-        enemyAttribute = SpinnerSlice.SliceAttribute.NULL;
-        playerAttribute = SpinnerSlice.SliceAttribute.NULL;
-
-        TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
+        StartCoroutine(DelayedEnemySpin());
+        TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
+    }
+    IEnumerator DelayedEnemySpin()
+    {
+        yield return new WaitForSeconds(1);
+        enemyControl.Spin();
     }
 }

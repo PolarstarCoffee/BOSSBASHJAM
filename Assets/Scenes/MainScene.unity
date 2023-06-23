@@ -3803,8 +3803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df99aebedcbc3a74089e958719b647f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinForceMin: 80
-  spinForceMax: 160
+  spinForceMin: 60
+  spinForceMax: 120
   slices:
   - {fileID: 12754542}
   - {fileID: 1518486863}
