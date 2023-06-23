@@ -46,4 +46,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + healthHealed, 0, maxHealth);
         healthUI.AlterHealth(healthHealed);
     }
+    //called by combat manager during combat
+    
 }

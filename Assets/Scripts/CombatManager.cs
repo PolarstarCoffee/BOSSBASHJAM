@@ -64,7 +64,7 @@ public class CombatManager : MonoBehaviour
     }
 
    
-   
+   //HERE: Implement enemy and player actions based on slice attribute
     private void ProcessEnemyTurn()
     {
         if (enemyAttribute == SpinnerSlice.SliceAttribute.ATTACK)
@@ -72,12 +72,14 @@ public class CombatManager : MonoBehaviour
             if (playerAttribute == SpinnerSlice.SliceAttribute.DODGE)
             {
                 // enemy attacks, player dodges
+                playerHealth.GetCurrentHealth();
             }
             else
             {
                 playerHealth.TakeDamage(3);
             }
         }
+
 
        
 
@@ -102,12 +104,18 @@ public class CombatManager : MonoBehaviour
         {
             if (enemyAttribute == SpinnerSlice.SliceAttribute.DODGE)
             {
-                // player attacks, enemy dodges
+                // player attacks, enemy dodges (Seemingly nothing happens here)
+                enemyHealth.GetCurrentHealth();
             }
             else
             {
                 enemyHealth.TakeDamage(3);
             }
+        }
+        //if the attribute lands to heal (Me thinks this is where I put the heal attribute right?)
+        if (playerAttribute == SpinnerSlice.SliceAttribute.HEAL)
+        {
+            playerHealth.Heal(3);
         }
 
         if (playerHealth.GetCurrentHealth() < 1)

@@ -17,6 +17,7 @@ public class SpinnerSlice : MonoBehaviour
         ATTACK,
         DODGE,
         NOTHING,
+        HEAL,
         NULL // this is if an attribute hasn't been selected
         // will add more later
     }

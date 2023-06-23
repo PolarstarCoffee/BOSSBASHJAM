@@ -8,7 +8,7 @@ public class TurnSystem : MonoBehaviour
     // singleton
     private static TurnSystem instance;
 
-    //Using enum states to change the game "state"! (Using enum states I think gives off the JRPG vibe) Do so outside of the class to reference it anywhere
+    //Using enum states to change the game "state"! (Using enum states I think gives off the JRPG vibe) 
 
     public enum TurnState { START, END, PLAYERTURN, WAITING, ENEMYTURN, RESOLVINGCOMBAT, VICTORY, DEFEAT }
     //game state variable
