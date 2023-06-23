@@ -118,7 +118,7 @@ public class PlayerSpinnerControl : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (canHighlight)
+        if (canHighlight && TurnSystem.Instance().GetCurrentState() == TurnSystem.TurnState.PLAYERTURN)
             highlightGraphics.SetActive(true);
     }
 
@@ -129,8 +129,12 @@ public class PlayerSpinnerControl : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Spin();
-        highlightGraphics.SetActive(false);
-        canHighlight = false;
+        if (TurnSystem.Instance().GetCurrentState() == TurnSystem.TurnState.PLAYERTURN)
+        {
+            Spin();
+            highlightGraphics.SetActive(false);
+            canHighlight = false;
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.WAITING);
+        }
     }
 }

@@ -21,6 +21,11 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     // called by combat manager during combat
     public void TakeDamage(int damage)
     {

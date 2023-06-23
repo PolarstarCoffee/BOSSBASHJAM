@@ -3,55 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-
 public class TurnSystem : MonoBehaviour
-
 {
+    // singleton
+    private static TurnSystem instance;
+
     //Using enum states to change the game "state"! (Using enum states I think gives off the JRPG vibe) Do so outside of the class to reference it anywhere
 
-    public enum TurnState { START, END, PLAYERTURN, WAITING, ENEMYTURN, VICTORY, DEFEAT }
+    public enum TurnState { START, END, PLAYERTURN, WAITING, ENEMYTURN, RESOLVINGCOMBAT, VICTORY, DEFEAT }
     //game state variable
     public TurnState gameState;
     //TMPro variable to signal change of game state
     public TextMeshProUGUI stateText;
+
+    // singleton access
+    public static TurnSystem Instance()
+    {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        // setting up singleton
+        if (instance != null && instance != this)
+            Destroy(this);
+        instance = this;
+    }
+
     private void Start() //setting the state of the game to "Start" 
     {
         //setting the inital game state to start!!!!! RAAAAAAGh
-        gameState = TurnState.START;
-        //Running the setUp method
-        StartCoroutine(setUp());
-        setState();
+        SetState(TurnState.START);
     }
 
-
-    IEnumerator setUp() //setting up the scene for battle 
+    IEnumerator SetUp() //setting up the scene for battle 
     {
         yield return new WaitForSeconds(1);
         //Changing the state of the game to the player's turn 
-        gameState = TurnState.PLAYERTURN;
-        setState();
+        SetState(TurnState.PLAYERTURN);
     }
 
     //Converts enum to string to display to player (I can go for some string cheese rn)
-    public void setState()
+    public void SetState(TurnState newState)
     {
-        stateText.text = gameState.ToString();
+        gameState = newState;
+        stateText.text = gameState.ToString(); // update text
+
+        if (gameState == TurnState.START)
+        {
+            StartCoroutine(SetUp());
+        }
+        else if (gameState == TurnState.DEFEAT)
+        {
+            // trigger losing screen
+        }
+        else if (gameState == TurnState.VICTORY)
+        {
+            // trigger going to next enemy
+        }
     }
-    //Does nothing for now, here's where the player would choose their actions (Might change later to simplify things)
-    IEnumerator playerAction()
+
+    public TurnState GetCurrentState()
     {
-        yield return new WaitForSeconds(1);
-        
+        return gameState;
     }
-
-    //Enemy action method (Might change later to simplify things)
-    IEnumerator enemyAction()
-    {
-        yield return new WaitForSeconds(1);
-
-    }
-
-
-
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// note to self: combine this with player health script?
+
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth;
@@ -21,11 +24,20 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     // called by combat manager during combat
     public void TakeDamage(int damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         healthUI.AlterHealth(-damage);
+
+        // TEMPORARY
+        if (currentHealth == 0)
+            Destroy(gameObject);
     }
 
     // called by combat manager during combat

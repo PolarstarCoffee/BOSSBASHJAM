@@ -31,11 +31,6 @@ public class EnemySpinnerControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Spin();
-        }
-
         if (spinning)
         {
             float spinAmount = currentSpinAmount * 10f * Time.deltaTime;

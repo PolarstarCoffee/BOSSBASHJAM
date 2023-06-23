@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private EnemyHealth enemyHealth;
+    private EnemySpinnerControl enemyControl;
 
     // attributes being played on the current turn, will be reassigned with each turn
     private SpinnerSlice.SliceAttribute enemyAttribute;
@@ -33,6 +34,7 @@ public class CombatManager : MonoBehaviour
     {
         playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
         enemyHealth = GameObject.FindWithTag("Enemy").GetComponent<EnemyHealth>();
+        enemyControl = GameObject.FindWithTag("Enemy").GetComponent<EnemySpinnerControl>();
 
         enemyAttribute = SpinnerSlice.SliceAttribute.NULL;
         playerAttribute = SpinnerSlice.SliceAttribute.NULL;
@@ -48,14 +50,17 @@ public class CombatManager : MonoBehaviour
     {
         enemyAttribute = attribute;
         if (playerAttribute != SpinnerSlice.SliceAttribute.NULL)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.RESOLVINGCOMBAT);
             ProcessTurn();
+        }
     }
 
     public void PlayerTurn(SpinnerSlice.SliceAttribute attribute)
     {
         playerAttribute = attribute;
-        if (enemyAttribute != SpinnerSlice.SliceAttribute.NULL)
-            ProcessTurn();
+        TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
+        enemyControl.Spin();
     }
 
     // this function is going to get very long- I think it's necessary tho, what can ya do :/
@@ -85,8 +90,20 @@ public class CombatManager : MonoBehaviour
             }
         }
 
+        if (playerHealth.GetCurrentHealth() < 1)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
+        }
+        else if (enemyHealth.GetCurrentHealth() < 1)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
+        }
+
+
         // reset attributes
         enemyAttribute = SpinnerSlice.SliceAttribute.NULL;
         playerAttribute = SpinnerSlice.SliceAttribute.NULL;
+
+        TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
     }
 }
