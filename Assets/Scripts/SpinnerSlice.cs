@@ -12,13 +12,23 @@ using UnityEngine;
 
 public class SpinnerSlice : MonoBehaviour
 {
+    public enum SliceAttribute
+    {
+        ATTACK,
+        DODGE,
+        NOTHING,
+        NULL // this is if an attribute hasn't been selected
+        // will add more later
+    }
+
+    public SliceAttribute attribute;
+
     // angle of the spinner when this slice is selected
     public float rotationRangeMin, rotationRangeMax;
-    public Color color;
+    public Color startColor;
     private Color highlightcolor = Color.blue;
 
-    // returns true if the spinner's current rotation matches the range
-    // that would make this slice the current one
+    // returns true if the spinner's current rotation matches the range that would make this slice the current one
     public bool SpinnerRotationInRange(float currentSpinnerRotation)
     {
         if (currentSpinnerRotation > rotationRangeMin && currentSpinnerRotation <= rotationRangeMax)
@@ -41,6 +51,6 @@ public class SpinnerSlice : MonoBehaviour
     // sets color of slice to default
     public void UnhighlightSlice()
     {
-        GetComponent<SpriteRenderer>().color = color;
+        GetComponent<SpriteRenderer>().color = startColor;
     }
 }

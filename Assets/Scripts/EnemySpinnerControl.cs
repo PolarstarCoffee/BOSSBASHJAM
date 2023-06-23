@@ -3,16 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-/*
- * This script controls manages the spinner. There's a 
- * lotta gross variables but most of them are just 
- * helping keep track of rotations. It's set up as a singleton
- * bc we'll want to have other objects subscribe to the 
- * OnSelection event so we can do whatever happens after a 
- * spin!
- */
-
-public class PlayerSpinnerControl : MonoBehaviour
+public class EnemySpinnerControl : MonoBehaviour
 {
     private UnityEvent OnSelection; // not using yet, but this will be called after a spin is finished
 
@@ -32,21 +23,19 @@ public class PlayerSpinnerControl : MonoBehaviour
     private SpinnerSlice currentSlice;
     public TurnSystem.TurnState gameState;
 
-    // selection highlighting on mouse over
-    private GameObject highlightGraphics;
-    private bool canHighlight;
-
     void Start()
     {
         spinning = false;
         centering = false;
-        highlightGraphics = transform.Find("GraphicsHighlight").gameObject;
-        highlightGraphics.SetActive(false);
-        canHighlight = true;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Spin();
+        }
+
         if (spinning)
         {
             float spinAmount = currentSpinAmount * 10f * Time.deltaTime;
@@ -79,7 +68,7 @@ public class PlayerSpinnerControl : MonoBehaviour
                 oldRotation = currentRotation;
                 centering = true;
                 spinning = false;
-                
+
             }
         }
 
@@ -97,7 +86,6 @@ public class PlayerSpinnerControl : MonoBehaviour
             {
                 // done recentering, tell combat manager what the result of the spin is
                 SubmitCombat();
-                canHighlight = true;
                 centering = false;
             }
         }
@@ -112,25 +100,6 @@ public class PlayerSpinnerControl : MonoBehaviour
 
     public void SubmitCombat()
     {
-        CombatManager.Instance().PlayerTurn(currentSlice.attribute);
-    }
-
-
-    private void OnMouseOver()
-    {
-        if (canHighlight)
-            highlightGraphics.SetActive(true);
-    }
-
-    private void OnMouseExit()
-    {
-        highlightGraphics.SetActive(false);
-    }
-
-    private void OnMouseDown()
-    {
-        Spin();
-        highlightGraphics.SetActive(false);
-        canHighlight = false;
+        CombatManager.Instance().EnemyTurn(currentSlice.attribute);
     }
 }
