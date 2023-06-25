@@ -8,6 +8,7 @@ public class SliceInventorySelection : MonoBehaviour
     private bool followMouse = false;
     private GameObject highlightGraphics;
     private Vector3 originalPosition;
+    private bool mouseOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,46 +26,55 @@ public class SliceInventorySelection : MonoBehaviour
             mousePos.z = 0.0f;
             transform.position = mousePos;
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                GetComponent<BoxCollider2D>().enabled = true;
-                transform.position = originalPosition;
-                selectedPiece = null;
-                followMouse = false;
+                // replacing piece in spinner
+                if (mouseOver && selectedPiece != null && selectedPiece != this.gameObject)
+                {
+                    // align new pice in spinner
+                    selectedPiece.transform.parent = transform.parent;
+                    selectedPiece.transform.localScale = transform.localScale;
+                    selectedPiece.transform.position = transform.position;
+                    selectedPiece.transform.rotation = transform.rotation;
+                    selectedPiece = null;
+                    // delete this old piece
+                    Destroy(this.gameObject);
+                }
+                // unselecting if there's not a piece underneath to replace
+                else
+                {
+                    GetComponent<CircleCollider2D>().enabled = true;
+                    transform.position = originalPosition;
+                    selectedPiece = null;
+                    followMouse = false;
+                }
             }
         }
     }
 
     private void OnMouseOver()
     {
-        if (selectedPiece != null)
-        {
-            highlightGraphics.SetActive(true);
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-
-        }
+        mouseOver = true;
+        highlightGraphics.SetActive(true);
     }
 
     private void OnMouseExit()
     {
         highlightGraphics.SetActive(false);
+        mouseOver = false;
     }
 
     private void OnMouseDown()
     {
-        if (!followMouse && selectedPiece != null) // going to replace this piece with the selected one
-        {
+        GetComponent<CircleCollider2D>().enabled = false;
+        originalPosition = transform.position;
+        selectedPiece = this.gameObject;
+        followMouse = true;
+        highlightGraphics.SetActive(false);
+    }
 
-        }
-        else // select this piece
-        {
-            GetComponent<BoxCollider2D>().enabled = false;
-            originalPosition = transform.position;
-            selectedPiece = this.gameObject;
-            followMouse = true;
-            highlightGraphics.SetActive(false);
-        }
+    public void UnSelect()
+    {
+
     }
 }
