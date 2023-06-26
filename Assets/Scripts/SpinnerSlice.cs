@@ -48,6 +48,16 @@ public class SpinnerSlice : MonoBehaviour
         return rotationRangeMin + (rotationRangeMax - rotationRangeMin) / 2.0f;
     }
 
+    public int GetCurrentDurability()
+    {
+        return currentDurability;
+    }
+
+    public int GetCurrentUsage()
+    {
+        return currentUsage;
+    }
+
     // sets color of slice to highlighted color
     public void HighlightSlice()
     {
@@ -59,6 +69,19 @@ public class SpinnerSlice : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = startColor;
     }
+
+    // takes info from input slice and copies it to this slice
+    public void CopySliceInfo(SpinnerSlice slice)
+    {
+        currentUsage = slice.GetCurrentUsage();
+        durability = slice.durability;
+        currentDurability = slice.GetCurrentDurability();
+        attribute = slice.attribute;
+        rotationRangeMin = slice.rotationRangeMin;
+        rotationRangeMax = slice.rotationRangeMax;
+        startColor = slice.startColor;
+    }
+
     //decreases durability (How do we have different durability attributes w/o manually setting each one in the inspector?)
     public void durabilityDecrease()
     {

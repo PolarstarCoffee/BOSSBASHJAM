@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 7117757541940662613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.56, y: -2.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7778, y: 1.7778, z: 1.7778}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7117757540926727792}
@@ -726,15 +726,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191888135170080486, guid: b1b0854d7867c4749aaf4a7ed3773317, type: 3}
       propertyPath: startColor.b
-      value: 1
+      value: 0.8196079
       objectReference: {fileID: 0}
     - target: {fileID: 6191888135170080486, guid: b1b0854d7867c4749aaf4a7ed3773317, type: 3}
       propertyPath: startColor.g
-      value: 1
+      value: 0.7960785
       objectReference: {fileID: 0}
     - target: {fileID: 6191888135170080486, guid: b1b0854d7867c4749aaf4a7ed3773317, type: 3}
       propertyPath: startColor.r
-      value: 1
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 6191888135170080486, guid: b1b0854d7867c4749aaf4a7ed3773317, type: 3}
       propertyPath: rotationRangeMax
