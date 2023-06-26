@@ -65,11 +65,11 @@ public class SpinnerSlice : MonoBehaviour
        currentDurability = durability - currentUsage;
     }
     //temporary! gets rid of useless ass slice smfh
-    public void durabilityDepleted()
+    public void durabilityDepletedCheck()
     {
         if (currentDurability <= 0)
         {
-            Debug.Log("This shouldn't work anymore");
+            Debug.Log("This shit shouldn't work anymore");
 
         }
     }

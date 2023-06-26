@@ -99,6 +99,8 @@ public class PlayerSpinnerControl : MonoBehaviour
                 SubmitCombat();
                 canHighlight = true;
                 centering = false;
+                currentSlice.usageIncrement();
+                
             }
         }
     }
@@ -113,6 +115,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     public void SubmitCombat()
     {
         CombatManager.Instance().PlayerTurn(currentSlice.attribute);
+        currentSlice.durabilityDepletedCheck();
     }
 
 
