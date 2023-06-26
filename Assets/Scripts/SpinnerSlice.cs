@@ -13,7 +13,7 @@ using UnityEngine;
 public class SpinnerSlice : MonoBehaviour
 {
     //durability counter variable
-    public int currentUsage;
+    private int currentUsage;
     public int durability;
     private int currentDurability;
 
@@ -69,8 +69,13 @@ public class SpinnerSlice : MonoBehaviour
     {
         if (currentDurability <= 0)
         {
-            Destroy(this.gameObject);
+            Debug.Log("This shouldn't work anymore");
+
         }
-        
+    }
+    //Increase the current useage count
+    public void usageIncrement()
+    {
+        currentUsage++;
     }
 }
