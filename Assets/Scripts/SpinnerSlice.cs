@@ -12,6 +12,11 @@ using UnityEngine;
 
 public class SpinnerSlice : MonoBehaviour
 {
+    //durability counter variable
+    public int currentUsage;
+    public int durability;
+    private int currentDurability;
+
     public enum SliceAttribute
     {
         ATTACK,
@@ -53,5 +58,19 @@ public class SpinnerSlice : MonoBehaviour
     public void UnhighlightSlice()
     {
         GetComponent<SpriteRenderer>().color = startColor;
+    }
+    //decreases durability (How do we have different durability attributes w/o manually setting each one in the inspector?)
+    public void durabilityDecrease()
+    {
+       currentDurability = durability - currentUsage;
+    }
+    //temporary! gets rid of useless ass slice smfh
+    public void durabilityDepleted()
+    {
+        if (currentDurability <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 }
