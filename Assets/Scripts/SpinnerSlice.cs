@@ -94,8 +94,7 @@ public class SpinnerSlice : MonoBehaviour
     {
         if (currentDurability <= 0)
         {
-            Debug.Log("This shit shouldn't work anymore");
-
+            attribute = SliceAttribute.DEFAULT;
         }
     }
     //Increase the current useage count
