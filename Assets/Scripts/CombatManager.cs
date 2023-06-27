@@ -100,6 +100,12 @@ public class CombatManager : MonoBehaviour
     }
     private void ProcessPlayerTurn()
     {
+        //Default attribute
+        if (playerAttribute == SpinnerSlice.SliceAttribute.DEFAULT)
+        {
+            enemyHealth.TakeDamage(1);
+        }
+        //Attack / Dodge Attribute
         if (playerAttribute == SpinnerSlice.SliceAttribute.ATTACK)
         {
             if (enemyAttribute == SpinnerSlice.SliceAttribute.DODGE)
@@ -112,22 +118,24 @@ public class CombatManager : MonoBehaviour
                 enemyHealth.TakeDamage(3);
             }
         }
-        //if the attribute lands to heal (Me thinks this is where I put the heal attribute right?)
+        //Heal attribute
         if (playerAttribute == SpinnerSlice.SliceAttribute.HEAL)
         {
             playerHealth.Heal(3);
         }
-
+        //Defeat game state
         if (playerHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
             return;
         }
+        //Victory game state
         else if (enemyHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
             return;
         }
+        //End of player turn
         StartCoroutine(DelayedEnemySpin());
         TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
     }

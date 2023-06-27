@@ -19,10 +19,12 @@ public class SpinnerSlice : MonoBehaviour
 
     public enum SliceAttribute
     {
+        DEFAULT,
         ATTACK,
         DODGE,
-        NOTHING,
         HEAL,
+        BLOCKED,
+        SWAPPABLE,
         NULL // this is if an attribute hasn't been selected
         // will add more later
     }
@@ -87,7 +89,7 @@ public class SpinnerSlice : MonoBehaviour
     {
        currentDurability = durability - currentUsage;
     }
-    //temporary! gets rid of useless ass slice smfh
+    //temporary! Should turn the piece to the 'Default" piece (Deal 1 damage)
     public void durabilityDepletedCheck()
     {
         if (currentDurability <= 0)
