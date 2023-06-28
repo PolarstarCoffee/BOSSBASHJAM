@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 315
   rotationRangeMax: 360
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 270
   rotationRangeMax: 315
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -1050,7 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 2
+  attribute: 0
   rotationRangeMin: 135
   rotationRangeMax: 180
   startColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 2
+  attribute: 0
   rotationRangeMin: 180
   rotationRangeMax: 225
   startColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 45
   rotationRangeMax: 90
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 1
+  attribute: 2
   rotationRangeMin: 90
   rotationRangeMax: 135
   startColor: {r: 0.16470589, g: 0.79607844, b: 0.81960785, a: 1}
@@ -2123,10 +2123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 1
+  attribute: 2
   rotationRangeMin: 225
   rotationRangeMax: 270
-  startColor: {r: 1, g: 1, b: 1, a: 1}
+  startColor: {r: 0.16470589, g: 0.79607844, b: 0.81960785, a: 1}
 --- !u!1 &1132848247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 2
+  attribute: 0
   rotationRangeMin: 90
   rotationRangeMax: 135
   startColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2802,7 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 315
   rotationRangeMax: 360
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 0
   rotationRangeMax: 45
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 270
   rotationRangeMax: 315
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3600,7 +3600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 0
   rotationRangeMax: 45
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3711,7 +3711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 0
+  attribute: 1
   rotationRangeMin: 45
   rotationRangeMax: 90
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -4075,7 +4075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  attribute: 2
+  attribute: 0
   rotationRangeMin: 225
   rotationRangeMax: 270
   startColor: {r: 1, g: 1, b: 1, a: 1}

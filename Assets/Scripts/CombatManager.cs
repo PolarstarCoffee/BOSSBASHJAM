@@ -64,9 +64,10 @@ public class CombatManager : MonoBehaviour
     }
 
    
-   //HERE: Implement enemy and player actions based on slice attribute
+   //Method that stores all the enemies possible actions
     private void ProcessEnemyTurn()
     {
+        //Attack/Dodge Piece (Enemy)
         if (enemyAttribute == SpinnerSlice.SliceAttribute.ATTACK)
         {
             if (playerAttribute == SpinnerSlice.SliceAttribute.DODGE)
@@ -78,6 +79,29 @@ public class CombatManager : MonoBehaviour
             {
                 playerHealth.TakeDamage(3);
             }
+        }
+        //Heal Piece (Enemy)
+        if (enemyAttribute == SpinnerSlice.SliceAttribute.HEAL)
+        {
+            enemyHealth.Heal(3);
+        }
+        //Default Piece (Enemy)
+        if (enemyAttribute == SpinnerSlice.SliceAttribute.DEFAULT)
+        {
+            if (playerAttribute == SpinnerSlice.SliceAttribute.DODGE)
+            {
+                // enemy attacks, player dodges
+                playerHealth.GetCurrentHealth();
+            }
+            else
+            {
+                playerHealth.TakeDamage(1);
+            }
+        }
+        //Player Skip piece (The Show Must Go On)
+        if (enemyAttribute == SpinnerSlice.SliceAttribute.SKIP)
+        {
+            //TEMP
         }
 
 
@@ -98,6 +122,7 @@ public class CombatManager : MonoBehaviour
       
         TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
     }
+    //Method that stores all the players possible actions
     private void ProcessPlayerTurn()
     {
         //Default attribute
@@ -105,7 +130,12 @@ public class CombatManager : MonoBehaviour
         {
             enemyHealth.TakeDamage(1);
         }
-        //Attack / Dodge Attribute
+        //Blocked (Ketchup) attribute, nothing happens (Might need to change this piece to be skipped entirely to make more sense)
+        if (playerAttribute == SpinnerSlice.SliceAttribute.BLOCKED)
+        {
+            return;
+        }
+        //Attack / Dodge attribute
         if (playerAttribute == SpinnerSlice.SliceAttribute.ATTACK)
         {
             if (enemyAttribute == SpinnerSlice.SliceAttribute.DODGE)
@@ -135,10 +165,13 @@ public class CombatManager : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
             return;
         }
+
+
         //End of player turn
         StartCoroutine(DelayedEnemySpin());
         TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
     }
+    //Slightly delayed start of enemy turn 
     IEnumerator DelayedEnemySpin()
     {
         yield return new WaitForSeconds(1);

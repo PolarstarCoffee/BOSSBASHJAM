@@ -25,6 +25,7 @@ public class SpinnerSlice : MonoBehaviour
         HEAL,
         BLOCKED,
         SWAPPABLE,
+        SKIP,
         NULL // this is if an attribute hasn't been selected
         // will add more later
     }
@@ -97,9 +98,14 @@ public class SpinnerSlice : MonoBehaviour
             attribute = SliceAttribute.DEFAULT;
         }
     }
-    //Increase the current useage count
+    //Increase the current usage count
     public void usageIncrement()
     {
         currentUsage++;
+    }
+    //Decrease the current usage count (used for the Heal durability method)
+    public void usageDecrement()
+    {
+        currentUsage--;
     }
 }
