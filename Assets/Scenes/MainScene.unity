@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e64cb8ce93944b921a74b7ed49aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 0
-  attribute: 1
+  durability: 1
+  attribute: 6
   rotationRangeMin: 315
   rotationRangeMax: 360
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -525,8 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e64cb8ce93944b921a74b7ed49aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 0
-  attribute: 1
+  durability: 1
+  attribute: 6
   rotationRangeMin: 270
   rotationRangeMax: 315
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3011,8 +3011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e64cb8ce93944b921a74b7ed49aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 0
-  attribute: 1
+  durability: 1
+  attribute: 6
   rotationRangeMin: 0
   rotationRangeMax: 45
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}
@@ -3710,8 +3710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e64cb8ce93944b921a74b7ed49aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 0
-  attribute: 1
+  durability: 1
+  attribute: 6
   rotationRangeMin: 45
   rotationRangeMax: 90
   startColor: {r: 0.39607847, g: 0.86666673, b: 0.41176474, a: 1}

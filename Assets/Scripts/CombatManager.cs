@@ -98,10 +98,18 @@ public class CombatManager : MonoBehaviour
                 playerHealth.TakeDamage(1);
             }
         }
-        //Player Skip piece (The Show Must Go On)
+        //Player Skip piece (The Show Must Go On) will most likely change 
         if (enemyAttribute == SpinnerSlice.SliceAttribute.SKIP)
         {
+            StartCoroutine(DelayedEnemySpin());
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);
+
             //TEMP
+        }
+        //Attack boost piece (Win the Crowd) will most likely change 
+        if (enemyAttribute == SpinnerSlice.SliceAttribute.ABOOST)
+        {
+            playerHealth.TakeDamage(5);
         }
 
 
@@ -119,8 +127,11 @@ public class CombatManager : MonoBehaviour
         }
 
 
-      
-        TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
+      if (enemyAttribute != SpinnerSlice.SliceAttribute.SKIP)
+        {
+            TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
+        }
+        //TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
     }
     //Method that stores all the players possible actions
     private void ProcessPlayerTurn()

@@ -26,6 +26,7 @@ public class SpinnerSlice : MonoBehaviour
         BLOCKED,
         SWAPPABLE,
         SKIP,
+        ABOOST,
         NULL // this is if an attribute hasn't been selected
         // will add more later
     }
@@ -96,6 +97,8 @@ public class SpinnerSlice : MonoBehaviour
         if (currentDurability <= 0)
         {
             attribute = SliceAttribute.DEFAULT;
+            //For testing
+            Debug.Log("Piece is broken!");
         }
     }
     //Increase the current usage count
