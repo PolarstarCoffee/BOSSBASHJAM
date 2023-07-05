@@ -10,12 +10,14 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     private int currentHealth;
     public HealthUI healthUI;
-
+    private EnemyGraphicsControl graphicsControl;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        graphicsControl = GameObject.FindWithTag("Enemy").GetComponent<EnemyGraphicsControl>();
+        graphicsControl.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -35,6 +37,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         healthUI.AlterHealth(-damage);
 
+        graphicsControl.UpdateDamageState(currentHealth); // update graphics to match current health
+
         // TEMPORARY
         if (currentHealth == 0)
             Destroy(gameObject);
@@ -45,7 +49,9 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + healthHealed, 0, maxHealth);
         healthUI.AlterHealth(healthHealed);
+
+        graphicsControl.UpdateDamageState(currentHealth); // update graphics to match current health
     }
     //called by combat manager during combat
-    
+
 }

@@ -32,9 +32,9 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
-        enemyHealth = GameObject.FindWithTag("Enemy").GetComponent<EnemyHealth>();
-        enemyControl = GameObject.FindWithTag("Enemy").GetComponent<EnemySpinnerControl>();
+        playerHealth = GameObject.FindWithTag("PlayerSpinner").GetComponent<PlayerHealth>();
+        enemyHealth = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemyHealth>();
+        enemyControl = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemySpinnerControl>();
 
         enemyAttribute = SpinnerSlice.SliceAttribute.NULL;
         playerAttribute = SpinnerSlice.SliceAttribute.NULL;
@@ -43,7 +43,10 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            enemyHealth.TakeDamage(1);
+        }
     }
 
     public void EnemyTurn(SpinnerSlice.SliceAttribute attribute)
@@ -111,9 +114,6 @@ public class CombatManager : MonoBehaviour
         {
             playerHealth.TakeDamage(5);
         }
-
-
-       
 
         if (playerHealth.GetCurrentHealth() < 1)
         {
