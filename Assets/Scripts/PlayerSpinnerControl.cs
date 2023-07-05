@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+
 
 /*
  * This script controls manages the spinner. There's a 
@@ -36,6 +38,12 @@ public class PlayerSpinnerControl : MonoBehaviour
     private GameObject highlightGraphics;
     private bool canHighlight;
 
+    //durability UI ref
+    public TextMeshProUGUI durabiltyUI;
+    public void Awake()
+    {
+        durabilityDisplayUpdate();
+    }
     void Start()
     {
         spinning = false;
@@ -43,6 +51,7 @@ public class PlayerSpinnerControl : MonoBehaviour
         highlightGraphics = transform.Find("GraphicsHighlight").gameObject;
         highlightGraphics.SetActive(false);
         canHighlight = true;
+        
     }
 
     void Update()
@@ -101,6 +110,8 @@ public class PlayerSpinnerControl : MonoBehaviour
                 centering = false;
                 currentSlice.usageIncrement();
                 
+
+                
             }
         }
     }
@@ -116,6 +127,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     {
         CombatManager.Instance().PlayerTurn(currentSlice.attribute);
         currentSlice.durabilityDepletedCheck();
+        
     }
 
 
@@ -140,7 +152,8 @@ public class PlayerSpinnerControl : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.WAITING);
         }
     }
-    public void poison()
+    //durability display method 
+    public void durabilityDisplayUpdate()
     {
         
     }

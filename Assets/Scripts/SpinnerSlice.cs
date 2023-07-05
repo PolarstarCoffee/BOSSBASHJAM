@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /*
  * This script goes on each slice in the spinner!
@@ -17,6 +18,9 @@ public class SpinnerSlice : MonoBehaviour
     public int durability;
     private int currentDurability;
     private int poisonDuration = 3;
+    
+
+
 
     public enum SliceAttribute
     {
@@ -40,6 +44,7 @@ public class SpinnerSlice : MonoBehaviour
     public Color startColor;
     private Color highlightcolor = Color.blue;
 
+    
     // returns true if the spinner's current rotation matches the range that would make this slice the current one
     public bool SpinnerRotationInRange(float currentSpinnerRotation)
     {
@@ -124,4 +129,5 @@ public class SpinnerSlice : MonoBehaviour
             return;
         }
     }
+    
 }
