@@ -140,4 +140,8 @@ public class PlayerSpinnerControl : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.WAITING);
         }
     }
+    public void poison()
+    {
+        
+    }
 }

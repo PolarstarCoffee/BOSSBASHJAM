@@ -114,7 +114,11 @@ public class CombatManager : MonoBehaviour
         {
             playerHealth.TakeDamage(5);
         }
-
+        //Enemy poison piece
+        if (enemyAttribute == SpinnerSlice.SliceAttribute.POISON)
+        {
+           
+        }
         if (playerHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
@@ -131,7 +135,7 @@ public class CombatManager : MonoBehaviour
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
         }
-        //TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
+        
     }
     //Method that stores all the players possible actions
     private void ProcessPlayerTurn()

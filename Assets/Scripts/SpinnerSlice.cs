@@ -16,6 +16,7 @@ public class SpinnerSlice : MonoBehaviour
     private int currentUsage;
     public int durability;
     private int currentDurability;
+    private int poisonDuration = 3;
 
     public enum SliceAttribute
     {
@@ -27,6 +28,7 @@ public class SpinnerSlice : MonoBehaviour
         SWAPPABLE,
         SKIP,
         ABOOST,
+        POISON,
         NULL // this is if an attribute hasn't been selected
         // will add more later
     }
@@ -110,5 +112,16 @@ public class SpinnerSlice : MonoBehaviour
     public void usageDecrement()
     {
         currentUsage--;
+    }
+    //Decrease poision duration
+    public void poisonDurationDecrement()
+    {
+        
+        poisonDuration--;
+        //If zero, nothing happens 
+        if (poisonDuration < 0)
+        {
+            return;
+        }
     }
 }
