@@ -105,6 +105,7 @@ public class SliceInventorySelection : MonoBehaviour
     public void PickUp()
     {
         GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().sortingOrder = 100;
         originalPosition = transform.position;
         UnHighlight();
     }
@@ -112,6 +113,7 @@ public class SliceInventorySelection : MonoBehaviour
     public void Reset(Vector3 originalPosition)
     {
         GetComponent<CircleCollider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().sortingOrder = 1;
         transform.position = originalPosition;
     }
 }
