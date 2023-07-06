@@ -18,6 +18,7 @@ public class SpinnerSlice : MonoBehaviour
     public int durability;
     private int currentDurability;
     private int poisonDuration = 3;
+   
     
 
 
@@ -44,7 +45,11 @@ public class SpinnerSlice : MonoBehaviour
     public Color startColor;
     private Color highlightcolor = Color.blue;
 
-    
+    public void Start()
+    {
+        
+        currentUsage = 0;
+    }
     // returns true if the spinner's current rotation matches the range that would make this slice the current one
     public bool SpinnerRotationInRange(float currentSpinnerRotation)
     {
@@ -61,6 +66,7 @@ public class SpinnerSlice : MonoBehaviour
 
     public int GetCurrentDurability()
     {
+        
         return currentDurability;
     }
 
@@ -101,11 +107,15 @@ public class SpinnerSlice : MonoBehaviour
     //temporary! Should turn the piece to the 'Default" piece (Deal 1 damage)
     public void durabilityDepletedCheck()
     {
-        if (currentDurability <= 0)
+        if (currentDurability == 0)
         {
             attribute = SliceAttribute.DEFAULT;
             //For testing
             Debug.Log("Piece is broken!");
+        }
+        else
+        {
+            return;
         }
     }
     //Increase the current usage count

@@ -37,12 +37,11 @@ public class PlayerSpinnerControl : MonoBehaviour
     // selection highlighting on mouse over
     private GameObject highlightGraphics;
     private bool canHighlight;
-
-    //durability UI ref
-    public TextMeshProUGUI durabiltyUI;
+    //durability UI
+    public TextMeshProUGUI durabilityText;
     public void Awake()
     {
-        durabilityDisplayUpdate();
+        
     }
     void Start()
     {
@@ -152,9 +151,5 @@ public class PlayerSpinnerControl : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.WAITING);
         }
     }
-    //durability display method 
-    public void durabilityDisplayUpdate()
-    {
-        
-    }
+   
 }
