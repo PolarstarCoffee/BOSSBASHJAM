@@ -103,6 +103,7 @@ public class SpinnerSlice : MonoBehaviour
     public void durabilityDecrease()
     {
        currentDurability = durability - currentUsage;
+        Debug.Log(currentDurability);
     }
     //temporary! Should turn the piece to the 'Default" piece (Deal 1 damage)
     public void durabilityDepletedCheck()
@@ -116,6 +117,7 @@ public class SpinnerSlice : MonoBehaviour
         else
         {
             return;
+           
         }
     }
     //Increase the current usage count

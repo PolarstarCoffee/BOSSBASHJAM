@@ -108,9 +108,12 @@ public class PlayerSpinnerControl : MonoBehaviour
                 canHighlight = true;
                 centering = false;
                 currentSlice.usageIncrement();
-                
+                currentSlice.durabilityDecrease();
+                currentSlice.durabilityDepletedCheck();
+                durabilityUIUpdate();
 
-                
+
+
             }
         }
     }
@@ -125,7 +128,8 @@ public class PlayerSpinnerControl : MonoBehaviour
     public void SubmitCombat()
     {
         CombatManager.Instance().PlayerTurn(currentSlice.attribute);
-        currentSlice.durabilityDepletedCheck();
+        
+        
         
     }
 
@@ -151,5 +155,8 @@ public class PlayerSpinnerControl : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.WAITING);
         }
     }
-   
+   public void durabilityUIUpdate()
+    {
+        durabilityText.text = currentSlice.GetCurrentDurability().ToString();
+    }
 }

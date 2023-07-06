@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  durabilityText: {fileID: 0}
   attribute: 6
   rotationRangeMin: 315
   rotationRangeMax: 360
@@ -324,7 +323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 2
-  durabilityText: {fileID: 0}
   attribute: 3
   rotationRangeMin: 135
   rotationRangeMax: 180
@@ -444,7 +442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  durabilityText: {fileID: 0}
   attribute: 6
   rotationRangeMin: 270
   rotationRangeMax: 315
@@ -1004,7 +1001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  durabilityText: {fileID: 0}
   attribute: 0
   rotationRangeMin: 135
   rotationRangeMax: 180
@@ -1161,7 +1157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  durabilityText: {fileID: 0}
   attribute: 0
   rotationRangeMin: 180
   rotationRangeMax: 225
@@ -1331,7 +1326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 0}
   attribute: 1
   rotationRangeMin: 45
   rotationRangeMax: 90
@@ -1434,7 +1428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 0}
   attribute: 2
   rotationRangeMin: 90
   rotationRangeMax: 135
@@ -1901,7 +1894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 0}
   attribute: 2
   rotationRangeMin: 225
   rotationRangeMax: 270
@@ -2072,7 +2064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 2
-  durabilityText: {fileID: 0}
   attribute: 3
   rotationRangeMin: 180
   rotationRangeMax: 225
@@ -2108,7 +2099,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  durabilityText: {fileID: 0}
   attribute: 0
   rotationRangeMin: 90
   rotationRangeMax: 135
@@ -2583,7 +2573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 1552399861}
   attribute: 1
   rotationRangeMin: 315
   rotationRangeMax: 360
@@ -2794,7 +2783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  durabilityText: {fileID: 0}
   attribute: 6
   rotationRangeMin: 0
   rotationRangeMax: 45
@@ -3128,6 +3116,7 @@ MonoBehaviour:
   - {fileID: 1127781035}
   - {fileID: 1757040710}
   gameState: 0
+  durabilityText: {fileID: 1552399861}
 --- !u!58 &1728358408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3286,7 +3275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 0}
   attribute: 1
   rotationRangeMin: 270
   rotationRangeMax: 315
@@ -3524,7 +3512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
-  durabilityText: {fileID: 0}
   attribute: 1
   rotationRangeMin: 0
   rotationRangeMax: 45
@@ -3636,7 +3623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 1
-  durabilityText: {fileID: 0}
   attribute: 6
   rotationRangeMin: 45
   rotationRangeMax: 90
@@ -3819,7 +3805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 0
-  durabilityText: {fileID: 0}
   attribute: 0
   rotationRangeMin: 225
   rotationRangeMax: 270
