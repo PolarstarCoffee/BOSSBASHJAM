@@ -39,6 +39,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     private bool canHighlight;
     //durability UI
     public TextMeshProUGUI durabilityText;
+   // public TextMeshProUGUI durabilityText2;
     public void Awake()
     {
         
@@ -158,5 +159,6 @@ public class PlayerSpinnerControl : MonoBehaviour
    public void durabilityUIUpdate()
     {
         durabilityText.text = currentSlice.GetCurrentDurability().ToString();
+        //durabilityText2.text = currentSlice.GetCurrentDurability().ToString();
     }
 }
