@@ -31,6 +31,7 @@ public class SpinnerSlice : MonoBehaviour
         HEAL,
         BLOCKED,
         SWAPPABLE,
+        EXPAND,
         SKIP,
         ABOOST,
         POISON,

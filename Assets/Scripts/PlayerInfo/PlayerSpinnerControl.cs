@@ -39,7 +39,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     private bool canHighlight;
     //durability UI
     public TextMeshProUGUI durabilityText;
-   // public TextMeshProUGUI durabilityText2;
+    //public TextMeshProUGUI durabilityText2;
     public void Awake()
     {
         
@@ -108,6 +108,7 @@ public class PlayerSpinnerControl : MonoBehaviour
                 SubmitCombat();
                 canHighlight = true;
                 centering = false;
+                //methods to calculate durability 
                 currentSlice.usageIncrement();
                 currentSlice.durabilityDecrease();
                 currentSlice.durabilityDepletedCheck();
