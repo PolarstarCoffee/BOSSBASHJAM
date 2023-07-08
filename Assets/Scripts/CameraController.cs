@@ -5,10 +5,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Vector3[] cameraPoints;
+    public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
     private int currentIndex;
+    private Camera cam;
+
+    // lerp variables
     private bool lerping;
     private float lerpCounter;
-    private Camera cam;
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +29,18 @@ public class CameraController : MonoBehaviour
         if (lerping)
         {
             lerpCounter += Time.deltaTime;
-            cam.transform.position = Vector3.Lerp(cameraPoints[currentIndex], cameraPoints[currentIndex + 1], lerpCounter);
+            cam.transform.position = Vector3.Lerp(cameraPoints[currentIndex], cameraPoints[currentIndex + 1], curve.Evaluate(lerpCounter));
             if (lerpCounter >= 1.0f)
             {
                 currentIndex++;
                 lerping = false;
             }
 
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            MoveToNextCheckpoint();
         }
     }
 
