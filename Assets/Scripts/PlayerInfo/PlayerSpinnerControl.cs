@@ -105,6 +105,8 @@ public class PlayerSpinnerControl : MonoBehaviour
                 SubmitCombat();
                 canHighlight = true;
                 centering = false;
+
+
                 //methods to calculate durability 
                 currentSlice.usageIncrement();
                 currentSlice.durabilityDecrease();

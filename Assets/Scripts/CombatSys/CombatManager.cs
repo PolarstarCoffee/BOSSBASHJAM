@@ -16,8 +16,15 @@ public class CombatManager : MonoBehaviour
     private SpinnerSlice.SliceAttribute enemyAttribute;
     private SpinnerSlice.SliceAttribute playerAttribute;
     //Acess to Slice array 
-    public PlayerSpinnerControl PlayerSpinnerControl;
+    public PlayerSpinnerControl PlayerSpinnerControlREF;
+    //CombatManager Spinnerslice array (To replace with array from PlayerSpinnerControl class)
+    public SpinnerSlice[] combatSlices = new SpinnerSlice[8];
 
+    void SlicesHelper()
+    {
+       PlayerSpinnerControlREF = GetComponent<PlayerSpinnerControl>();
+        combatSlices = PlayerSpinnerControlREF.slices;
+    }
     // singleton access
     public static CombatManager Instance()
     {
@@ -121,6 +128,7 @@ public class CombatManager : MonoBehaviour
         if (enemyAttribute == SpinnerSlice.SliceAttribute.POISON)
         {
             
+           
         }
 
         if (playerHealth.GetCurrentHealth() < 1)

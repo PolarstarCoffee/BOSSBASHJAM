@@ -131,13 +131,17 @@ public class SpinnerSlice : MonoBehaviour
     {
         currentUsage--;
     }
-    //Decrease poision duration
+    //poision duration
     public void poisonDurationDecrement()
     {
         
         poisonDuration--;
         //If zero, nothing happens 
-        if (poisonDuration < 0)
+        if (poisonDuration > 0)
+        {
+            usageIncrement();
+        }
+        if (poisonDuration <= 0)
         {
             return;
         }
