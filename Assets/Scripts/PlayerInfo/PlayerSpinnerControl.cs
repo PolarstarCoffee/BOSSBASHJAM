@@ -40,10 +40,7 @@ public class PlayerSpinnerControl : MonoBehaviour
     //durability UI
     public TextMeshProUGUI durabilityText;
     //public TextMeshProUGUI durabilityText2;
-    public void Awake()
-    {
-        
-    }
+   
     void Start()
     {
         spinning = false;

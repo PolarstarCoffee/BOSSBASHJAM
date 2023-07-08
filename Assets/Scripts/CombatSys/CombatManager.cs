@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CombatManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CombatManager : MonoBehaviour
     // attributes being played on the current turn, will be reassigned with each turn
     private SpinnerSlice.SliceAttribute enemyAttribute;
     private SpinnerSlice.SliceAttribute playerAttribute;
+    //Acess to Slice array 
+    public PlayerSpinnerControl PlayerSpinnerControl;
 
     // singleton access
     public static CombatManager Instance()
@@ -117,20 +120,22 @@ public class CombatManager : MonoBehaviour
         //Enemy poison piece
         if (enemyAttribute == SpinnerSlice.SliceAttribute.POISON)
         {
-           
+            
         }
+
         if (playerHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.DEFEAT);
             return;
         }
+
         else if (enemyHealth.GetCurrentHealth() < 1)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
             return;
         }
 
-
+        //2nd part of player skip piece
       if (enemyAttribute != SpinnerSlice.SliceAttribute.SKIP)
         {
             TurnSystem.Instance().SetState(TurnSystem.TurnState.START);
@@ -168,6 +173,8 @@ public class CombatManager : MonoBehaviour
         {
             playerHealth.Heal(3);
         }
+
+
         //Defeat game state
         if (playerHealth.GetCurrentHealth() < 1)
         {
@@ -180,8 +187,6 @@ public class CombatManager : MonoBehaviour
             TurnSystem.Instance().SetState(TurnSystem.TurnState.VICTORY);
             return;
         }
-
-
         //End of player turn
         StartCoroutine(DelayedEnemySpin());
         TurnSystem.Instance().SetState(TurnSystem.TurnState.ENEMYTURN);

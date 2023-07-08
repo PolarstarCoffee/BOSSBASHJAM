@@ -110,7 +110,7 @@ public class SpinnerSlice : MonoBehaviour
     public void durabilityDepletedCheck()
     {
         if (currentDurability == 0)
-        {
+        { 
             attribute = SliceAttribute.DEFAULT;
             //For testing
             Debug.Log("Piece is broken!");

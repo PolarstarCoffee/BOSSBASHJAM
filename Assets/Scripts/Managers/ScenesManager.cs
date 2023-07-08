@@ -32,6 +32,7 @@ public class ScenesManager : MonoBehaviour
     //load new game method
     public void LoadNewGame() 
     {
+        //Put whichever scene here
         //SceneManager.LoadScene(Scene.LayOut_Test.ToString());
     }
 
@@ -46,5 +47,10 @@ public class ScenesManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(Scene.mainMenuSAMPLE.ToString());
+    }
+    //Exits application
+    public void endGame()
+    {
+        Application.Quit();
     }
 }
