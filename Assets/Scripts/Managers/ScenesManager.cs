@@ -17,6 +17,11 @@ public class ScenesManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        AudioManager.Instance().ChangeSong("CircusLoop");
+    }
+
     public enum Scene //Levels are by index (mainMenu = 0, Level01 = 1, etc.. NOTE: MAKE SURE ENUM ENTRIES MATCH ORDER WITHIN UNITY'S BUILD SETTINGS, OR GAME WILL BLOW UP 
     {
         mainMenuSAMPLE,
@@ -33,7 +38,7 @@ public class ScenesManager : MonoBehaviour
     public void LoadNewGame() 
     {
         //Put whichever scene here
-        //SceneManager.LoadScene(Scene.LayOut_Test.ToString());
+        SceneManager.LoadScene(1);
     }
 
 

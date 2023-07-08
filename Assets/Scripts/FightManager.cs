@@ -14,6 +14,10 @@ public class FightManager : MonoBehaviour
     {
         if (startingFight)
             StartCoroutine(DelayedStart());
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator DelayedStart()
@@ -44,6 +48,7 @@ public class FightManager : MonoBehaviour
         }
         else
         {
+            nextFight.gameObject.SetActive(true);
             nextFight.SetUpFight();
         }
     }

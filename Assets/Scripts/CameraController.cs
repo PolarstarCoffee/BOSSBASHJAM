@@ -49,6 +49,7 @@ public class CameraController : MonoBehaviour
             cam.transform.position = Vector3.Lerp(cameraPoints[currentIndex], cameraPoints[currentIndex + 1], curve.Evaluate(lerpCounter));
             if (lerpCounter >= 1.0f)
             {
+                cam.GetComponent<Animator>().SetBool("fade", false);
                 currentIndex++;
                 lerping = false;
             }
@@ -66,6 +67,14 @@ public class CameraController : MonoBehaviour
         // early exit if we're at the final spot
         if (currentIndex == cameraPoints.Length)
             return -1; // if player beats final boss
+
+        if (currentIndex == cameraPoints.Length - 2)
+        {
+            AudioManager.Instance().ChangeSong("BattleTheme");
+        }
+
+        cam.GetComponent<Animator>().SetBool("fade", true);
+
         lerpCounter = 0.0f;
         lerping = true;
         return 0;
