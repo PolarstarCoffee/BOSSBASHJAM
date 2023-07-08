@@ -12,6 +12,7 @@ public class EnemySpinnerControl : MonoBehaviour
     private float currentSpinAmount;
     private float currentRotation;
     private bool spinning;
+    
 
     // centering the spinner on the current slice after spin
     private bool centering;
@@ -82,6 +83,16 @@ public class EnemySpinnerControl : MonoBehaviour
                 // done recentering, tell combat manager what the result of the spin is
                 SubmitCombat();
                 centering = false;
+
+                currentSlice.usageIncrement();
+                currentSlice.durabilityDecrease();
+                currentSlice.durabilityDepletedCheck();
+
+                /*if (CombatManager.Instance().isPoisoned == true)
+                *{
+                 *   CombatManager.Instance().poisonDurationDecrement();
+                }*/
+
             }
         }
     }

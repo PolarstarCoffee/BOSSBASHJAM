@@ -17,12 +17,6 @@ public class SpinnerSlice : MonoBehaviour
     private int currentUsage;
     public int durability;
     private int currentDurability;
-    private int poisonDuration = 3;
-   
-    
-
-
-
     public enum SliceAttribute
     {
         DEFAULT,
@@ -130,21 +124,5 @@ public class SpinnerSlice : MonoBehaviour
     public void usageDecrement()
     {
         currentUsage--;
-    }
-    //poision duration
-    public void poisonDurationDecrement()
-    {
-        
-        poisonDuration--;
-        //If zero, nothing happens 
-        if (poisonDuration > 0)
-        {
-            usageIncrement();
-        }
-        if (poisonDuration <= 0)
-        {
-            return;
-        }
-    }
-    
+    } 
 }

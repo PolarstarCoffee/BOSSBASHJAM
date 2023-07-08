@@ -19,11 +19,20 @@ public class CombatManager : MonoBehaviour
     public PlayerSpinnerControl PlayerSpinnerControlREF;
     //CombatManager Spinnerslice array (To replace with array from PlayerSpinnerControl class)
     public SpinnerSlice[] combatSlices = new SpinnerSlice[8];
+    //ref to Spinnerslice class
+    private SpinnerSlice currentSlice;
+    //poison duration counter
+    public int poisonDuration = 3;
+    //public bool isPoisoned;
 
+
+
+    //pointing new array towards old array
     void SlicesHelper()
     {
        PlayerSpinnerControlREF = GetComponent<PlayerSpinnerControl>();
         combatSlices = PlayerSpinnerControlREF.slices;
+        
     }
     // singleton access
     public static CombatManager Instance()
@@ -42,6 +51,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //isPoisoned = false;
         playerHealth = GameObject.FindWithTag("PlayerSpinner").GetComponent<PlayerHealth>();
         enemyHealth = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemyHealth>();
         enemyControl = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemySpinnerControl>();
@@ -125,11 +135,10 @@ public class CombatManager : MonoBehaviour
             playerHealth.TakeDamage(5);
         }
         //Enemy poison piece
-        if (enemyAttribute == SpinnerSlice.SliceAttribute.POISON)
-        {
-            
-           
-        }
+        /*if (enemyAttribute == SpinnerSlice.SliceAttribute.POISON)
+        *{
+         *   poisonDurationDecrement();
+        }*/
 
         if (playerHealth.GetCurrentHealth() < 1)
         {
@@ -204,5 +213,21 @@ public class CombatManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         enemyControl.Spin();
+    }
+    //poision duration
+    public void poisonDurationDecrement()
+    {
+
+        poisonDuration--;
+        //isPoisoned = true;
+        //If zero, nothing happens 
+        if (poisonDuration > 0)
+        {
+            
+        }
+        if (poisonDuration <= 0)
+        {
+            return;
+        }
     }
 }

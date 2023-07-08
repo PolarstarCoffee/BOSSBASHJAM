@@ -129,9 +129,6 @@ public class PlayerSpinnerControl : MonoBehaviour
     public void SubmitCombat()
     {
         CombatManager.Instance().PlayerTurn(currentSlice.attribute);
-        
-        
-        
     }
 
 
