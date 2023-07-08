@@ -47,7 +47,13 @@ public class HealthUI : MonoBehaviour
             lerpProgress += Time.deltaTime;
             bar.localScale = new Vector3(Mathf.Lerp(currentScale, newScale, curve.Evaluate(lerpProgress)), bar.localScale.y, bar.localScale.z);
             if (lerpProgress >= 1)
+            {
+                if (currentHealth <= 0)
+                {
+                    Destroy(gameObject);
+                }
                 currentScale = newScale;
+            }
         }
     }
 

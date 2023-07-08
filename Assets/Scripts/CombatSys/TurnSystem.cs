@@ -16,6 +16,8 @@ public class TurnSystem : MonoBehaviour
     //TMPro variable to signal change of game state
     public TextMeshProUGUI stateText;
 
+    public FightManager currentFight;
+
     // singleton access
     public static TurnSystem Instance()
     {
@@ -33,6 +35,7 @@ public class TurnSystem : MonoBehaviour
     private void Start() //setting the state of the game to "Start" 
     {
         //setting the inital game state to start!!!!! RAAAAAAGh
+        currentFight = GameObject.Find("Fight1").GetComponent<FightManager>();
         SetState(TurnState.START);
     }
 
@@ -59,8 +62,17 @@ public class TurnSystem : MonoBehaviour
         }
         else if (gameState == TurnState.VICTORY)
         {
-            // trigger going to next enemy
+            StartCoroutine(DelayedVictory());
         }
+    }
+
+    private IEnumerator DelayedVictory()
+    {
+        yield return new WaitForSeconds(2.0f);
+        FightManager newFight = currentFight.nextFight;
+        currentFight.MoveToNextStage();
+        currentFight = newFight;
+        SetState(TurnState.START);
     }
 
     public TurnState GetCurrentState()

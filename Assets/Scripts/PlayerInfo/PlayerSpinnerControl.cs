@@ -111,7 +111,9 @@ public class PlayerSpinnerControl : MonoBehaviour
                 currentSlice.usageIncrement();
                 currentSlice.durabilityDecrease();
                 currentSlice.durabilityDepletedCheck();
-                durabilityUIUpdate();
+
+                // COME BACK AND WORK ON IN A SEC
+                //durabilityUIUpdate();
 
 
 

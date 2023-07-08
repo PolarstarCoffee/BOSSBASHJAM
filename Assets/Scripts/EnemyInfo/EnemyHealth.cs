@@ -10,20 +10,25 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     private int currentHealth;
     public HealthUI healthUI;
-    private EnemyGraphicsControl graphicsControl;
+    public EnemyGraphicsControl graphicsControl;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        graphicsControl = GameObject.FindWithTag("Enemy").GetComponent<EnemyGraphicsControl>();
         graphicsControl.SetMaxHealth(maxHealth);
+        healthUI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void ActivateHealthUI()
+    {
+        healthUI.gameObject.SetActive(true);
     }
 
     public int GetCurrentHealth()

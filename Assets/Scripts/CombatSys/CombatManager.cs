@@ -53,8 +53,7 @@ public class CombatManager : MonoBehaviour
     {
         //isPoisoned = false;
         playerHealth = GameObject.FindWithTag("PlayerSpinner").GetComponent<PlayerHealth>();
-        enemyHealth = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemyHealth>();
-        enemyControl = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemySpinnerControl>();
+        AssignEnemy();
 
         enemyAttribute = SpinnerSlice.SliceAttribute.NULL;
         playerAttribute = SpinnerSlice.SliceAttribute.NULL;
@@ -87,6 +86,12 @@ public class CombatManager : MonoBehaviour
     }
 
    
+    public void AssignEnemy()
+    {
+        enemyHealth = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemyHealth>();
+        enemyControl = GameObject.FindWithTag("EnemySpinner").GetComponent<EnemySpinnerControl>();
+    }
+
    //Method that stores all the enemies possible actions
     private void ProcessEnemyTurn()
     {
