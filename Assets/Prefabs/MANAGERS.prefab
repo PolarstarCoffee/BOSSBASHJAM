@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5740976989990937565}
   - component: {fileID: 5740976989990937539}
   - component: {fileID: 5740976989990937538}
+  - component: {fileID: 977289427}
   m_Layer: 0
   m_Name: MANAGERS
   m_TagString: Untagged
@@ -58,6 +59,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd5aeeae0310714a94caa41bb97c612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSpinnerControlREF: {fileID: 0}
+  combatSlices:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  poisonDuration: 3
 --- !u!114 &5740976989990937538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +84,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   stateText: {fileID: 0}
+--- !u!114 &977289427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740976989990937566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cc965c7f75a644eb8f65c194fc902b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPoints:
+  - {x: 114.32, y: 10.11, z: -175.88}
+  - {x: 114.32, y: 12.8, z: -85.1}
+  - {x: 114.32, y: 9.2, z: 57.3}
+  - {x: 114.32, y: 9.2, z: 234.6}
+  - {x: 114.32, y: 10.7, z: 424.9}
